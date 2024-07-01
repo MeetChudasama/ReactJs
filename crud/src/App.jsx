@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); //hooks
   const [employee, setEmployee] = useState({firstName: "", lastName: "", age: ""})
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -26,9 +26,9 @@ function App() {
 
   const handleSave = () => {
     const id = Math.floor(Math.random() *100)
-    setData(newData => [...newData, {...employee, id: id}])
+    setData(newData => [...newData, {...employee, id: id}]) //spread operator we use it for if we don't have to use any exsisting data and onlu have to work on the data we choose then we can use it.
   };
-bs
+
   const handleUpdate = () => {
     const index = data
       .map((item) => {
