@@ -129,6 +129,7 @@ function App() {
               <td>Last Name</td>
               <td>Age</td>
               <td>Actions</td>
+              <td>Jay Mataji</td>
             </tr>
           </thead>
           <tbody className="table-group-divider">
