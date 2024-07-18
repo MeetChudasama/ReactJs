@@ -1,7 +1,16 @@
 import React from 'react'
 import Salary from './Salary';
+import { useState } from 'react';
 
 const Employee = (props) => {
+
+  const [data, setData] = useState({
+    simple: props.basic,
+    hr: props.hra,
+    dd: props.da,
+    total: parseInt(props.basic) + parseInt(props.hra) + parseInt(props.da),
+  });
+
   return (
     <>
       <h1 id="heading">Employee data </h1>
@@ -21,17 +30,18 @@ const Employee = (props) => {
           <tr>
             <td>{props.empid}</td>
             <td>{props.ename}</td>
-            <td>{props.basic}</td>
-            <td>{props.hra}</td>
-            <td>{props.da}</td>
+            <td>{setData.basic}</td>
+            <td>{setData.hra}</td>
+            <td>{setData.da}</td>
             <td>
-              {parseInt(props.basic) + parseInt(props.hra) + parseInt(props.da)}
+              {/* {parseInt(props.basic) + parseInt(props.hra) + parseInt(props.da)} */}
+              {setData.total}
             </td>
           </tr>
         </tbody>
       </table>
       <div className='row'>
-        <Salary />
+        <Salary b={props.basic} h={props.hra} d={props.da} />
       </div>
     </>
   );
