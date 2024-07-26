@@ -1,34 +1,34 @@
+import React from 'react'
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import './Header.css'
+import { Link } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/">Là Eventoo</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+            {/* <Nav.Link><Link to= '/'>Home</Link></Nav.Link>  */} {/* this is the second way to open the page which we given to route and if we give only Link tag in boostraps class then it gonna change the style so we write it into the Nav.Link tag*/}
+            <Nav.Link href="/about">About</Nav.Link>{/* in href /about is which we have given path to the route so when we click about then about page is gonna open and it applies on all the page */}
+            <Nav.Link href="/products">Products</Nav.Link>
+            <NavDropdown title="Form" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/form">RegularForm</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              <NavDropdown.Item href="/useform">useForm</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    
   );
 }
 
-export default Header;
+export default Header

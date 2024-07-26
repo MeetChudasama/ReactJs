@@ -5,14 +5,20 @@ const Salary = (props) => {
     basic:props.b,
     hra: props.h,
     da: props.d,
+    // basic:'',
+    // hra:'',
+    // da:'',
   });
 
   const updateSalary = (e) => {
     e.preventDefault;
     // alert(JSON.stringify(salary));
-    alert(parseInt(salary.basic) + parseInt(salary.hra) + parseInt(salary.da))
-  };
+    // alert(parseInt(salary.basic) + parseInt(salary.hra) + parseInt(salary.da))
+    let t = parseInt(salary.basic) + parseInt(salary.hra) + parseInt(salary.da)
 
+    props.changeSalary(salary.basic, salary.hra, salary.da,t)
+  };
+  
   return (
     <div className="">
       <h1 id="head">Salary</h1>
@@ -25,7 +31,7 @@ const Salary = (props) => {
             className="form-control"
             name="basic"
             id="basic"
-            value={salary.basic || ""}
+            value={salary.basic}
             // onChange={(e) =>
             //   setSalary({ salary: { ...salary, basic: e.target.value } }) //wrong
             // }
@@ -57,16 +63,17 @@ const Salary = (props) => {
           <label htmlFor="da">Da</label>
         </div>
 
-        <div className="d-flex justify-content-end">
-          <button
-            type="button"
-            className="btn btn-info"
-            id="btn"
-            onClick={updateSalary}
-          >
-            Update
-          </button>
-        </div>
+        
+          <div className="d-flex justify-content-end">
+            <button
+              type="button"
+              className="btn btn-info"
+              id="btn"
+              onClick={updateSalary}
+            >
+              Update Salary
+            </button>
+          </div>
       </form>
     </div>
   );
