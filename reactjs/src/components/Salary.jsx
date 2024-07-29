@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SalaryChild from "./SalaryChild";
 
 const Salary = (props) => {
   const [salary, setSalary] = useState({
@@ -20,50 +21,53 @@ const Salary = (props) => {
   };
   
   return (
-    <div className="">
-      <h1 id="head">Salary</h1>
-      <hr />
+    <div className="row">
+      <div className="col-6">
+        <h1 id="head">Salary</h1>
+        <hr />
 
-      <form onSubmit={updateSalary}>
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            name="basic"
-            id="basic"
-            value={salary.basic}
-            // onChange={(e) =>
-            //   setSalary({ salary: { ...salary, basic: e.target.value } }) //wrong
-            // }
+        <form onSubmit={updateSalary}>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              name="basic"
+              id="basic"
+              value={salary.basic}
+              ref={basicRef}
+              // onChange={(e) =>
+              //   setSalary({ salary: { ...salary, basic: e.target.value } }) //wrong
+              // }
 
-            onChange={(e) => setSalary({ ...salary, basic: e.target.value })}
-          />
-          <label htmlFor="basic">Basic</label>
-        </div>
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            name="hra"
-            id="hra"
-            value={salary.hra}
-            onChange={(e) => setSalary({ ...salary, hra: e.target.value })}
-          />
-          <label htmlFor="hra">Hra</label>
-        </div>
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            name="da"
-            id="da"
-            value={salary.da}
-            onChange={(e) => setSalary({ ...salary, da: e.target.value })}
-          />
-          <label htmlFor="da">Da</label>
-        </div>
+              onChange={(e) => setSalary({ ...salary, basic: e.target.value })}
+            />
+            <label htmlFor="basic">Basic</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              name="hra"
+              id="hra"
+              value={salary.hra}
+              ref={hraRef}
+              onChange={(e) => setSalary({ ...salary, hra: e.target.value })}
+            />
+            <label htmlFor="hra">Hra</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              name="da"
+              id="da"
+              value={salary.da}
+              ref={daRef}
+              onChange={(e) => setSalary({ ...salary, da: e.target.value })}
+            />
+            <label htmlFor="da">Da</label>
+          </div>
 
-        
           <div className="d-flex justify-content-end">
             <button
               type="button"
@@ -74,7 +78,11 @@ const Salary = (props) => {
               Update Salary
             </button>
           </div>
-      </form>
+        </form>
+      </div>
+      <div className="col-6">
+        <SalaryChild basic={salary.basic} hra={salary.hra} da={salary.da} />
+      </div>
     </div>
   );
 };

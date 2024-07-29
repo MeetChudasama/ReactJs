@@ -36,6 +36,7 @@ function App() {
           <Route path="/useform" element={<ReactHookForm/>}/>
           <Route path="/products" element={<ProductsList/>}/>
           <Route path="/products/details/:productname/:id" element={<ProductDetails/>}/> {/* we call this a dynamic routing we are showing product name by clicking whichever view button */}
+          <Route path="/employee" element={<Employee empid="01" ename="Dhairya" basic="49000" hra="500" da="1200"/>}/> {/* we call this a dynamic routing we are showing product name by clicking whichever view button */}
   
           <Route path="*" element={<PageNotFound />} />
         </Routes>
